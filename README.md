@@ -12,15 +12,15 @@ Because the main ecryption tool used is XOR and to reverse it use it
 
 * Let's Take a closer look
 
-*   1     a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d)
-*   2     b = c ^ F(a ^ F(d) ^ (a | d))
-*   3     c = d ^ F(a | F(a) ^ a)
-*   4     d = a ^ 31337
+*   1  *   a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d)
+*   2  *   b = c ^ F(a ^ F(d) ^ (a | d))
+*   3  *   c = d ^ F(a | F(a) ^ a)
+*   4  *   d = a ^ 31337
 
-*   5     a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
-*   6     b = b ^ F(d ^ F(a) ^ (d | a))
-*   7     c = a ^ F(d | F(d) ^ d)
-*   8     d = d ^ 1337
+*   5  *   a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
+*   6  *   b = b ^ F(d ^ F(a) ^ (d | a))
+*   7  *   c = a ^ F(d | F(d) ^ d)
+*   8  *   d = d ^ 1337
    
    in reversing orders we will 
    Firstly work with (8,7,6,5) equations then (4,3,2,1)
