@@ -12,9 +12,12 @@ Because the main ecryption tool used is XOR and to reverse it use it
 
 * Let's Take a closer look
 
-   a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d)
+   a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d) 
+   
    b = c ^ F(a ^ F(d) ^ (a | d))
+   
    c = d ^ F(a | F(a) ^ a)
+   
    d = a ^ 31337
 
    a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
