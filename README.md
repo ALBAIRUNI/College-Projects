@@ -12,15 +12,15 @@ Because the main ecryption tool used is XOR and to reverse it use it
 
 * Let's Take a closer look
 
-   1     a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d)
-   2     b = c ^ F(a ^ F(d) ^ (a | d))
-   3     c = d ^ F(a | F(a) ^ a)
-   4     d = a ^ 31337
+*   1     a = b ^ F(a | F(c ^ F(d)) ^ F(a | c) ^ d)
+*   2     b = c ^ F(a ^ F(d) ^ (a | d))
+*   3     c = d ^ F(a | F(a) ^ a)
+*   4     d = a ^ 31337
 
-   5     a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
-   6     b = b ^ F(d ^ F(a) ^ (d | a))
-   7     c = a ^ F(d | F(d) ^ d)
-   8     d = d ^ 1337
+*   5     a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
+*   6     b = b ^ F(d ^ F(a) ^ (d | a))
+*   7     c = a ^ F(d | F(d) ^ d)
+*   8     d = d ^ 1337
    
    in reversing orders we will 
    Firstly work with (8,7,6,5) equations then (4,3,2,1)
@@ -29,21 +29,21 @@ Because the main ecryption tool used is XOR and to reverse it use it
    working with lower part  (8,7,6,5) equations just reverse without any problem 
    as there are no nested variables : I mean no variable is used after its transformation like equation 7,8
    
-   8     d = d ^ 1337
-   7     a = c ^ (F(d | F(d) ^ d))
-   6     b = b ^ (F(d ^ F(a) ^ (d | a)))
-   5     c = a3 ^ (F(d | F(b ^ F(a)) ^ F(d | b) ^ a))
+*   8     d = d ^ 1337
+*   7     a = c ^ (F(d | F(d) ^ d))
+*   6     b = b ^ (F(d ^ F(a) ^ (d | a)))
+*   5     c = a3 ^ (F(d | F(b ^ F(a)) ^ F(d | b) ^ a))
    
    the Upper Part is different as we use variables after its transformation 
    so we have to keep a version of Pretransformation 
    
    
 
-         a2 = a
+*         a2 = a
 
-  4      a = d ^ 31337
-  3      d = c ^ (F(a | F(a) ^ a))
-  2      c = b ^ (F(a ^ F(d) ^ (a | d)))
-  1      b = a2 ^ (F(a | F(c ^ F(d)) ^ F(a | c) ^ d))
+*   4      a = d ^ 31337
+*   3      d = c ^ (F(a | F(a) ^ a))
+*   2      c = b ^ (F(a ^ F(d) ^ (a | d)))
+*   1      b = a2 ^ (F(a | F(c ^ F(d)) ^ F(a | c) ^ d))
   
   note the sequence we used 
