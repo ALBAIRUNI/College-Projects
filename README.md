@@ -19,10 +19,15 @@ Because the main ecryption tool used is XOR and to reverse it use it
    c = d ^ F(a | F(a) ^ a)
    
    d = a ^ 31337
+   
+   
 
    a = c ^ F(d | F(b ^ F(a)) ^ F(d | b) ^ a)
+   
    b = b ^ F(d ^ F(a) ^ (d | a))
+   
    c = a ^ F(d | F(d) ^ d)
+   
    d = d ^ 1337
    
    in reversing orders we will 
